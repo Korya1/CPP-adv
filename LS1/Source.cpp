@@ -126,17 +126,8 @@ std::ostream& operator<<(std::ostream& stream, PhoneBook obj)
 
 void PhoneBook::SortByName()
 {
-	auto sort = [](const auto& l, const auto& r) {
-
-		if (l.first.secondName == r.first.secondName)
-		{
-			if (l.first.firstName == r.first.firstName)
-			{
-				return l.first.patronymic < r.first.patronymic;
-			}
-			return l.first.firstName < r.first.firstName;
-		}
-		return l.first.secondName < r.first.secondName;
+	auto sort = [](const auto& left, const auto& right) {		
+		return left.first < right.first;
 	};
 
 	std::sort(data.begin(), data.end(), sort);
@@ -145,21 +136,8 @@ void PhoneBook::SortByName()
 void PhoneBook::SortByPhone()
 {
 
-	auto sort = [](const auto& l, const auto& r) {
-
-		if (l.second.idCountry == r.second.idCountry)
-		{
-			if (l.second.idCity == r.second.idCity)
-			{
-				if (l.second.number == r.second.number)
-				{
-					return l.second.idAdditional < r.second.idAdditional;
-				}
-				return l.second.number < r.second.number;
-			}
-			return l.second.idCity < r.second.idCity;
-		}
-		return l.second.idCountry < r.second.idCountry;
+	auto sort = [](const auto& left, const auto& right) {
+		return left.second < right.second;
 	};
 
 	std::sort(data.begin(), data.end(), sort);
