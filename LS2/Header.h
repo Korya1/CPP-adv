@@ -30,11 +30,11 @@ public:
 
 
 template<typename T>
-void Swap(T* const f_value, T* const s_value)
+void Swap(T*& const f_value, T*& const s_value)
 {
-	T temp = *f_value;
-	*f_value = *s_value;
-	*s_value = temp;
+	T* temp = f_value;
+	f_value = s_value;
+	s_value = temp;
 }
 
 template<typename T>
