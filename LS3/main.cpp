@@ -1,26 +1,40 @@
-﻿//#include "Header.h"
+﻿#include "Header.h"
 #include "Common.h"
-
-template<class C, class T>
-void insert_sorted(C& container, T value)
-{
-	auto it{ lower_bound(container.begin(), container.end(), value) };
-	container.insert(it, value);
-}
-
 
 int main()
 {
-	std::vector<int> cont{ 1,2,3,4,5,6,7 };
-	insert_sorted(cont, 3);
-	insert_sorted(cont, 8);
+	//================== task 1
+	std::list<double> nums{ 1.76, 2.34, 1.2 };
 
-	for (const auto& el : cont)
+	for (auto const& el : nums)
 	{
 		std::cout << el << " ";
 	}
-	std::cout << std::endl;
 
+	addAverage(nums); ///foo
+
+	std::cout << std::endl << "----------------" << std::endl;
+
+	for (auto const& el : nums)
+	{
+		std::cout << el << " ";
+	}
+	std::cout << std::endl << std::endl;
+	//================== task 2
+
+
+	Matrix matrix(3);
+	matrix.FillValues();
+	matrix.PrintMatrix();
+	int d = matrix.getDeterminant(matrix.getData(), matrix.getSize());
+	std::cout << d << std::endl;
+
+	//================== task 3
+	MyCont<int> cont{ 2,3,4,6,12,2 };
+
+	for (auto& j : cont) {
+		std::cout << j << " ";
+	}
 
 
 	return 0;
