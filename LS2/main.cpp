@@ -8,7 +8,7 @@ int main()
 	int* b = new int{ 2 };
 	std::cout << "a = " << a << " value a = " << *a << "\n";
 	std::cout << "b = " << b << " value b = " << *b << "\n";
-	Swap(&a, &b);
+	Swap(a, b);
 	std::cout << "a = " << a << " value a = " << *a << "\n";
 	std::cout << "b = " << b << " value b = " << *b << "\n\n";
 	delete a;
